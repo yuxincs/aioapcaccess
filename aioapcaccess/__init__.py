@@ -8,7 +8,7 @@ from collections import OrderedDict
 _STATUS_CMD = b"\x00\x06status"
 _EOF = b"\x00\x00"
 
-ALL_UNITS = {
+UNITS = {
     "Minutes",
     "Seconds",
     "Percent",
@@ -78,7 +78,7 @@ def parse_raw_status(raw_status: bytes) -> OrderedDict[str, tuple[str, str | Non
 
         # Further split out the unit in value if available.
         unit = None
-        for u in ALL_UNITS:
+        for u in UNITS:
             if not value.endswith(u):
                 continue
             value, unit = value[: -len(u)].strip(), u
