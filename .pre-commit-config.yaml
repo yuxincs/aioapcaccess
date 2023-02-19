@@ -49,6 +49,10 @@ repos:
       - id: check-ast
       - id: check-json
       - id: check-case-conflict
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: trailing-whitespace
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.28.0
     hooks:
