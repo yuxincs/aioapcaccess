@@ -1,6 +1,6 @@
 [project]
 name = "aioapcaccess"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 description = "Async version of apcaccess library implemented in python."
 version = "0.1.0"
 readme = "README.md"
@@ -22,7 +22,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.black]
 line-length = 99
-target-version = ['py37']
+target-version = ['py38']
 
 [tool.isort]
 atomic = true
