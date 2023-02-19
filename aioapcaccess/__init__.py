@@ -4,7 +4,6 @@ from __future__ import annotations
 import asyncio
 from collections import OrderedDict
 
-
 _STATUS_CMD = b"\x00\x06status"
 _EOF = b"\x00\x00"
 
@@ -51,7 +50,7 @@ def parse_raw_status(raw_status: bytes) -> OrderedDict[str, tuple[str, str | Non
 
     # Strip EOF from the status and decode to string.
     if not raw_status.endswith(_EOF):
-        raise ValueError(f"raw status does not end with EOF")
+        raise ValueError("raw status does not end with EOF")
     status = raw_status[: -len(_EOF)].decode()
 
     # An example line is like this:
