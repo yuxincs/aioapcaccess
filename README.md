@@ -1,5 +1,6 @@
 # aioapcaccess
 
+![build](https://github.com/yuxincs/aioapcaccess/actions/workflows/build.yaml/badge.svg)
 [![codecov](https://codecov.io/github/yuxincs/aioapcaccess/branch/main/graph/badge.svg?token=8zhys5YAk9)](https://codecov.io/github/yuxincs/aioapcaccess)
 
 An async implementation of [apcaccess](https://linux.die.net/man/8/apcaccess). This library provides programmatic access to the status information provided by [apcupsd](http://www.apcupsd.org/) over its Network Information Server (NIS) which usually listens on TCP port 3551.
