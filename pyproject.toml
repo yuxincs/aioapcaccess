@@ -8,6 +8,11 @@ license = {file = 'LICENSE'}
 authors = [
     { name = "Yuxin Wang", email = "yuxinwang.dev@gmail.com" }
 ]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 dependencies = []
 
 [project.optional-dependencies]
@@ -18,7 +23,7 @@ dev = [
 ]
 
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools >= 61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.black]
