@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from aioapcaccess import parse_raw_status, request_raw_status, request_status
+from aioapcaccess import parse_raw_status, request_raw_status, request_status, split_unit
 
 from . import PARSED_DICT, SAMPLE_STATUS
 
@@ -46,3 +46,17 @@ def test_parse_error():
 
     with pytest.raises(ValueError):
         parse_raw_status(status)
+
+
+def test_split_unit():
+    value, unit = split_unit("15.0 Percent")
+    assert value == "15.0"
+    assert unit == "Percent"
+
+    value, unit = split_unit("16.0 Unrecognized Unit")
+    assert value == "16.0 Unrecognized Unit"
+    assert unit is None
+
+    value, unit = split_unit("18.0 Percent Load Capacity")
+    assert value == "18.0"
+    assert unit == "Percent Load Capacity"
