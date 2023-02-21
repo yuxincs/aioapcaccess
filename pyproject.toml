@@ -2,7 +2,7 @@
 name = "aioapcaccess"
 requires-python = ">=3.8"
 description = "Async version of apcaccess library implemented in python."
-version = "0.1.0"
+version = "0.2.0"
 readme = "README.md"
 license = {file = 'LICENSE'}
 authors = [
