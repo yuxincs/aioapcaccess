@@ -28,7 +28,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.black]
 line-length = 99
-target-version = ['py38']
+target-version = ["py38"]
 
 [tool.isort]
 atomic = true
@@ -42,3 +42,7 @@ forced_separate = ["tests"]
 
 [tool.bandit]
 exclude_dirs = ["tests"]
+
+[tool.ruff]
+line-length = 99
+target-version = "py38"

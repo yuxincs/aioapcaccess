@@ -24,27 +24,23 @@ UNITS = {
 async def request_status(
     host: str = "localhost",
     port: int = 3551,
-) -> OrderedDict[str, tuple[str, str | None]]:
+) -> OrderedDict[str, str]:
     """Connect to the APCUPSd NIS and request its status and return the parsed dict.
 
     :param host: the host which apcupsd is listening on.
     :param port: the port which apcupsd is listening on.
-    :return an ordered dict, where key is the field (e.g., "NOMINV") and value is a
-    tuple of (value, unit). The unit will be None if not available. For example,
-    ("NOMINV", "12.0 Volts") -> ("NOMINV", "12.0", "Volts")
-    ("SERIALNO", "XXXXXXX") -> ("SERIALNO", "XXXXXXX", None)
+    :return an ordered dict, where key is the field (e.g., "NOMINV") and value is the
+    value. For example, {"NOMINV": "12.0 Volts", ..., "SERIALNO": "XXXXXXX"}
     """
     return parse_raw_status(await request_raw_status(host, port))
 
 
-def parse_raw_status(raw_status: bytes) -> OrderedDict[str, tuple[str, str | None]]:
+def parse_raw_status(raw_status: bytes) -> OrderedDict[str, str]:
     """Parse the raw status and return an ordered dict.
 
     :param raw_status: raw status string retrieved from apcupsd.
-    :return an ordered dict, where key is the field (e.g., "NOMINV") and value is a
-    tuple of (value, unit). The unit will be None if not available. For example,
-    ("NOMINV", "12.0 Volts") -> ("NOMINV", "12.0", "Volts")
-    ("SERIALNO", "XXXXXXX") -> ("SERIALNO", "XXXXXXX", None)
+    :return an ordered dict, where key is the field (e.g., "NOMINV") and value is the
+    value. For example, {"NOMINV": "12.0 Volts", ..., "SERIALNO": "XXXXXXX"}
     """
     result = OrderedDict()
 
@@ -74,16 +70,7 @@ def parse_raw_status(raw_status: bytes) -> OrderedDict[str, tuple[str, str | Non
         # Strip spaces and newlines
         # ("DATE", "1970-01-01 00:00:00 -0000")
         name, value = name.strip(), value.strip()
-
-        # Further split out the unit in value if available.
-        unit = None
-        for u in UNITS:
-            if not value.endswith(u):
-                continue
-            value, unit = value[: -len(u)].strip(), u
-            break
-
-        result[name] = (value, unit)
+        result[name] = value
 
     return result
 
@@ -93,7 +80,7 @@ async def request_raw_status(host: str = "localhost", port: int = 3551) -> bytes
 
     :param host: the host which apcupsd is listening on.
     :param port: the port which apcupsd is listening on.
-    :return a string containing raw status obtained from apcupsd.
+    :return a bytes object containing raw status obtained from apcupsd.
     """
 
     reader, writer = await asyncio.open_connection(host, port)
@@ -106,3 +93,19 @@ async def request_raw_status(host: str = "localhost", port: int = 3551) -> bytes
     finally:
         writer.close()
         await writer.wait_closed()
+
+
+def split_unit(value: str) -> tuple[str, str | None]:
+    """Split the unit suffix from the value (if available).
+
+    For the set of supported unit suffixes, see aioapcaccess.UNITS.
+
+    :param value: the retrieved value string.
+    :return a tuple consisting of the value and the unit (None if not found).
+    """
+    for unit in UNITS:
+        if not value.endswith(unit):
+            continue
+        return value[: -len(unit)].strip(), unit
+
+    return value, None
