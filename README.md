@@ -16,6 +16,14 @@ This project is a re-implementation of the synchronous version
 [asyncio](https://docs.python.org/3/library/asyncio.html), where a lot of the logic is
 borrowed and improved.
 
+# Install
+
+Install with pip:
+
+```
+$ pip install aioapcaccess
+```
+
 # Usage
 
 The primary API for getting the status from APCUPS is `aioapcaccess.request_status`.
