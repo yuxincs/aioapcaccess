@@ -16,6 +16,7 @@ UNITS = {
     "Amps",
     "Hz",
     "C",
+    "C Internal",
     "VA",
     "Percent Load Capacity",
 }
@@ -29,7 +30,7 @@ async def request_status(
 
     :param host: the host which apcupsd is listening on.
     :param port: the port which apcupsd is listening on.
-    :return an ordered dict, where key is the field (e.g., "NOMINV") and value is the
+    :return: an ordered dict, where key is the field (e.g., "NOMINV") and value is the
     value. For example, {"NOMINV": "12.0 Volts", ..., "SERIALNO": "XXXXXXX"}
     """
     return parse_raw_status(await request_raw_status(host, port))
@@ -39,7 +40,7 @@ def parse_raw_status(raw_status: bytes) -> OrderedDict[str, str]:
     """Parse the raw status and return an ordered dict.
 
     :param raw_status: raw status string retrieved from apcupsd.
-    :return an ordered dict, where key is the field (e.g., "NOMINV") and value is the
+    :return: an ordered dict, where key is the field (e.g., "NOMINV") and value is the
     value. For example, {"NOMINV": "12.0 Volts", ..., "SERIALNO": "XXXXXXX"}
     """
     result = OrderedDict()
@@ -80,7 +81,7 @@ async def request_raw_status(host: str = "localhost", port: int = 3551) -> bytes
 
     :param host: the host which apcupsd is listening on.
     :param port: the port which apcupsd is listening on.
-    :return a bytes object containing raw status obtained from apcupsd.
+    :return: a bytes object containing raw status obtained from apcupsd.
     """
 
     reader, writer = await asyncio.open_connection(host, port)
@@ -101,7 +102,7 @@ def split_unit(value: str) -> tuple[str, str | None]:
     For the set of supported unit suffixes, see aioapcaccess.UNITS.
 
     :param value: the retrieved value string.
-    :return a tuple consisting of the value and the unit (None if not found).
+    :return: a tuple consisting of the value and the unit (None if not found).
     """
     for unit in UNITS:
         if not value.endswith(unit):

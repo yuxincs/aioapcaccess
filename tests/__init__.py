@@ -32,7 +32,7 @@ SAMPLE_STATUS = (
     b"\x17LOTRANS  : 196.0 Volts\n\x00"
     b"\x17HITRANS  : 253.0 Volts\n\x00"
     b"\x18RETPCT   : 15.0 Percent\n\x00"
-    b"\x12ITEMP    : 30.6 C\n\x00"
+    b"\x1bITEMP    : 30.6 C Internal\n\x00"
     b"\x17ALARMDEL : Low Battery\n\x00"
     b"\x16BATTV    : 27.6 Volts\n\x00"
     b"\x13LINEFREQ : 50.0 Hz\n\x00"
@@ -89,7 +89,7 @@ PARSED_DICT = OrderedDict(
         ("LOTRANS", "196.0 Volts"),
         ("HITRANS", "253.0 Volts"),
         ("RETPCT", "15.0 Percent"),
-        ("ITEMP", "30.6 C"),
+        ("ITEMP", "30.6 C Internal"),
         ("ALARMDEL", "Low Battery"),
         ("BATTV", "27.6 Volts"),
         ("LINEFREQ", "50.0 Hz"),

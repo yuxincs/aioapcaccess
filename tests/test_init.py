@@ -48,15 +48,16 @@ def test_parse_error():
         parse_raw_status(status)
 
 
-def test_split_unit():
-    value, unit = split_unit("15.0 Percent")
-    assert value == "15.0"
-    assert unit == "Percent"
-
-    value, unit = split_unit("16.0 Unrecognized Unit")
-    assert value == "16.0 Unrecognized Unit"
-    assert unit is None
-
-    value, unit = split_unit("18.0 Percent Load Capacity")
-    assert value == "18.0"
-    assert unit == "Percent Load Capacity"
+@pytest.mark.parametrize(
+    "raw_value,value,unit",
+    [
+        ("15.0 Percent", "15.0", "Percent"),
+        ("16.0 Unrecognized Unit", "16.0 Unrecognized Unit", None),
+        ("18.0 Percent Load Capacity", "18.0", "Percent Load Capacity"),
+        ("32.0 C Internal", "32.0", "C Internal"),
+    ],
+)
+def test_split_unit(raw_value: str, value: str, unit: str):
+    v, u = split_unit(raw_value)
+    assert v == value
+    assert u == unit
