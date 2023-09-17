@@ -42,7 +42,7 @@ SAMPLE_STATUS = (
     b"\x15CUMONBATT: 0 Seconds\n\x00"
     b"\x0fXOFFBATT : N/A\n\x00"
     b"\x0eSELFTEST : NO\n\x00"
-    b"\x0fSTESTI   : 336\n\x00"
+    b"\x12STESTI   : 7 days\n\x00"
     b"\x16STATFLAG : 0x0500000A\n\x00"
     b"\x10DIPSW    : 0x00\n\x00"
     b"\x10REG1     : 0x00\n\x00"
@@ -99,7 +99,7 @@ PARSED_DICT = OrderedDict(
         ("CUMONBATT", "0 Seconds"),
         ("XOFFBATT", "N/A"),
         ("SELFTEST", "NO"),
-        ("STESTI", "336"),
+        ("STESTI", "7 days"),
         ("STATFLAG", "0x0500000A"),
         ("DIPSW", "0x00"),
         ("REG1", "0x00"),

@@ -55,6 +55,7 @@ def test_parse_error():
         ("16.0 Unrecognized Unit", "16.0 Unrecognized Unit", None),
         ("18.0 Percent Load Capacity", "18.0", "Percent Load Capacity"),
         ("32.0 C Internal", "32.0", "C Internal"),
+        ("7 days", "7", "days"),
     ],
 )
 def test_split_unit(raw_value: str, value: str, unit: str):
