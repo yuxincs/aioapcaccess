@@ -16,9 +16,15 @@ UNITS = {
     "Amps",
     "Hz",
     "C",
+    # APCUPSd reports data for "itemp" field (eventually represented by UPS Internal Temperature
+    # sensor in this integration) with a trailing "Internal", e.g., "34.6 C Internal". Here we
+    # create a fake unit " C Internal" to handle this case.
     "C Internal",
     "VA",
     "Percent Load Capacity",
+    # "stesti" field (Self Test Interval) field could report a "days" unit, e.g., "7 days", so here
+    # we add support for it.
+    "days",
 }
 
 
