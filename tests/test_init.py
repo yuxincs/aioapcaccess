@@ -9,7 +9,6 @@ from aioapcaccess import parse_raw_status, request_raw_status, request_status, s
 from . import PARSED_DICT, SAMPLE_STATUS
 
 
-@pytest.mark.asyncio
 async def test_request_status():
     """Test top-level API request_status."""
     with patch(
@@ -19,7 +18,6 @@ async def test_request_status():
         mock_request_raw_status.assert_called_once_with("testhost", 4242)
 
 
-@pytest.mark.asyncio
 async def test_request_raw_status():
     """Test requesting raw status from apcupsd NIC."""
     with patch("asyncio.open_connection") as mock_open_connection:
