@@ -1,4 +1,5 @@
 """Contains async functions to extract and parse the status of the apcupsd NIS."""
+
 from __future__ import annotations
 
 import asyncio

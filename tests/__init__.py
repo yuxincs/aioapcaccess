@@ -1,4 +1,5 @@
 """Sample raw status and its parsed dict."""
+
 from collections import OrderedDict
 
 SAMPLE_STATUS = (

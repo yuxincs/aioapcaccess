@@ -1,4 +1,5 @@
 """Test functions for aioapcaccess."""
+
 import asyncio
 from unittest.mock import MagicMock, patch
 
