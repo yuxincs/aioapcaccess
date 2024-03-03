@@ -9,6 +9,8 @@ repos:
       - id: ruff
         args:
           - --fix
+      - id: ruff-format
+        files: ^.*\.py$
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.15.0
     hooks:
@@ -21,12 +23,6 @@ repos:
         args:
           - --in-place
           - --remove-all-unused-imports
-  - repo: https://github.com/psf/black
-    rev: 24.1.1
-    hooks:
-      - id: black
-        args:
-          - --quiet
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
@@ -43,10 +39,6 @@ repos:
           - --format=custom
           - --config=pyproject.toml
         additional_dependencies: ["bandit[toml]"]
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
@@ -61,10 +53,6 @@ repos:
     rev: v1.33.0
     hooks:
       - id: yamllint
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
-    hooks:
-      - id: prettier
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.8.0
     hooks:

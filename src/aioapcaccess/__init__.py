@@ -29,10 +29,7 @@ UNITS = {
 }
 
 
-async def request_status(
-    host: str = "localhost",
-    port: int = 3551,
-) -> OrderedDict[str, str]:
+async def request_status(host: str = "localhost", port: int = 3551) -> OrderedDict[str, str]:
     """Connect to the APCUPSd NIS and request its status and return the parsed dict.
 
     :param host: the host which apcupsd is listening on.
