@@ -32,7 +32,7 @@ async def test_request_raw_status():
 
 
 def test_parse_raw_status():
-    """Test parsing raw status"""
+    """Test parsing raw status."""
     assert parse_raw_status(SAMPLE_STATUS) == PARSED_DICT
 
 
