@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import asyncio
-from collections import OrderedDict
 
 _STATUS_CMD = b"\x00\x06status"
 _EOF = b"\x00\x00"
@@ -29,7 +28,7 @@ UNITS = {
 }
 
 
-async def request_status(host: str = "localhost", port: int = 3551) -> OrderedDict[str, str]:
+async def request_status(host: str = "localhost", port: int = 3551) -> dict[str, str]:
     """Connect to the APCUPSd NIS and request its status and return the parsed dict.
 
     :param host: the host which apcupsd is listening on.
@@ -40,14 +39,14 @@ async def request_status(host: str = "localhost", port: int = 3551) -> OrderedDi
     return parse_raw_status(await request_raw_status(host, port))
 
 
-def parse_raw_status(raw_status: bytes) -> OrderedDict[str, str]:
+def parse_raw_status(raw_status: bytes) -> dict[str, str]:
     """Parse the raw status and return an ordered dict.
 
     :param raw_status: raw status string retrieved from apcupsd.
     :return: an ordered dict, where key is the field (e.g., "NOMINV") and value is the
     value. For example, {"NOMINV": "12.0 Volts", ..., "SERIALNO": "XXXXXXX"}
     """
-    result = OrderedDict()
+    result = {}
 
     # Strip EOF from the status and decode to string.
     if not raw_status.endswith(_EOF):
