@@ -3,7 +3,6 @@
 [![build](https://github.com/yuxincs/aioapcaccess/actions/workflows/build.yaml/badge.svg)](https://github.com/yuxincs/aioapcaccess/actions/workflows/build.yaml?query=branch%3Amain)
 [![codecov](https://codecov.io/github/yuxincs/aioapcaccess/branch/main/graph/badge.svg?token=8zhys5YAk9)](https://codecov.io/github/yuxincs/aioapcaccess)
 [![PyPI](https://img.shields.io/pypi/v/aioapcaccess)](https://pypi.org/project/aioapcaccess/)
-[![black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![GitHub](https://img.shields.io/github/license/yuxincs/aioapcaccess)](https://github.com/yuxincs/aioapcaccess/blob/main/LICENSE)
 
 An async implementation of [apcaccess](https://linux.die.net/man/8/apcaccess). This
