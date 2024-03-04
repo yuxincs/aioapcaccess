@@ -4,7 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-    group:
+    groups:
       github-actions:
         patterns:
           - "*"
