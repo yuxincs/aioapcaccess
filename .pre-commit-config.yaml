@@ -16,13 +16,6 @@ repos:
     hooks:
       - id: pyupgrade
         args: [--py38-plus]
-  - repo: https://github.com/PyCQA/autoflake
-    rev: v2.2.1
-    hooks:
-      - id: autoflake
-        args:
-          - --in-place
-          - --remove-all-unused-imports
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
