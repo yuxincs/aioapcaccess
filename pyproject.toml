@@ -1,6 +1,6 @@
 [project]
 name = "aioapcaccess"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 description = "Async version of apcaccess library implemented in python."
 dynamic = ["version"]
 readme = "README.md"
@@ -40,7 +40,7 @@ exclude_dirs = ["tests"]
 
 [tool.ruff]
 line-length = 99
-target-version = "py38"
+target-version = "py39"
 
 [tool.ruff.lint]
 extend-select = ["I"]
