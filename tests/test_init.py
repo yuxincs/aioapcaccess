@@ -4,6 +4,7 @@ import asyncio
 from unittest.mock import MagicMock, patch
 
 import pytest
+
 from aioapcaccess import parse_raw_status, request_raw_status, request_status, split_unit
 
 from . import PARSED_DICT, SAMPLE_STATUS
