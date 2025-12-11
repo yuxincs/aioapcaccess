@@ -26,7 +26,7 @@ $ pip install aioapcaccess
 # Usage
 
 The primary API for getting the status from APCUPS is `aioapcaccess.request_status`.
-It returns a `collections.OrderedDict` mapping from field names (e.g., "SERIALNO") to
+It returns a `dict` mapping from field names (e.g., "SERIALNO") to
 their values in string format. What fields are available will depend on the model of
 your APC UPS, see [APCUPSD manual](http://www.apcupsd.org/manual/) for details.
 
