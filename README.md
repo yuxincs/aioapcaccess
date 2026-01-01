@@ -65,5 +65,23 @@ In addition to `request_status`, we offer the following functions for advanced u
   (e.g., "Seconds", "Volts"). If no valid units are found in the value strings, `unit`
   will be `None`.
 
+## Development
+
+We use [prek](https://github.com/astral-sh/prek) for running the linting and security
+hooks defined in `.pre-commit-config.yaml`. After cloning the repository, install the
+development dependencies and set up the git hook via:
+
+```bash
+python -m pip install --upgrade pip
+pip install '.[dev]'
+prek install
+```
+
+To run all hooks manually (which is also what CI does), run:
+
+```bash
+prek run --all-files
+```
+
 ## Support
 This library supports all Python versions that are not EOL at the time of release.
