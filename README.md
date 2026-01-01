@@ -1,6 +1,6 @@
 # aioapcaccess
 
-[![build](https://github.com/yuxincs/aioapcaccess/actions/workflows/build.yaml/badge.svg)](https://github.com/yuxincs/aioapcaccess/actions/workflows/build.yaml?query=branch%3Amain)
+[![build](https://github.com/yuxincs/aioapcaccess/actions/workflows/ci.yaml/badge.svg)](https://github.com/yuxincs/aioapcaccess/actions/workflows/ci.yaml?query=branch%3Amain)
 [![codecov](https://codecov.io/github/yuxincs/aioapcaccess/branch/main/graph/badge.svg?token=8zhys5YAk9)](https://codecov.io/github/yuxincs/aioapcaccess)
 [![PyPI](https://img.shields.io/pypi/v/aioapcaccess)](https://pypi.org/project/aioapcaccess/)
 [![GitHub](https://img.shields.io/github/license/yuxincs/aioapcaccess)](https://github.com/yuxincs/aioapcaccess/blob/main/LICENSE)
