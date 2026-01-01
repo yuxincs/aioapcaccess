@@ -64,3 +64,6 @@ In addition to `request_status`, we offer the following functions for advanced u
   the set of supported units. Note that units are also in the forms of strings
   (e.g., "Seconds", "Volts"). If no valid units are found in the value strings, `unit`
   will be `None`.
+
+## Support
+This library supports all Python versions that are not EOL at the time of release.
