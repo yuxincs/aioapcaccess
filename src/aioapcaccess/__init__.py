@@ -46,7 +46,7 @@ def parse_raw_status(raw_status: bytes) -> dict[str, str]:
     :return: an ordered dict, where key is the field (e.g., "NOMINV") and value is the
     value. For example, {"NOMINV": "12.0 Volts", ..., "SERIALNO": "XXXXXXX"}
     """
-    result = {}
+    result: dict[str, str] = {}
 
     # Strip EOF from the status and decode to string.
     if not raw_status.endswith(_EOF):

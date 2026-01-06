@@ -46,7 +46,7 @@ repos:
     rev: v1.37.1
     hooks:
       - id: yamllint
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.19.1
+  - repo: https://github.com/DetachHead/basedpyright-prek-mirror
+    rev: 1.36.2
     hooks:
-      - id: mypy
+      - id: basedpyright
