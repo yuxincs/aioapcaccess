@@ -44,6 +44,8 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
 
+  # A job to check whether all required jobs succeeded or failed such that we can mark the PR as green or red.
+  # See https://github.com/orgs/community/discussions/26733 for more details.
   all-green:
     if: always()
 
