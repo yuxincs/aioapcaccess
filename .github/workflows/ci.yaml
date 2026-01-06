@@ -12,24 +12,31 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.x"]
+        python-version: ["3.11", "3.14"]
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v6
+      - name: Install the latest version of uv and set the python version
+        uses: astral-sh/setup-uv@v7
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
+      # Set up a cache for prek.
+      - name: Setup cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/prek
+          key: >
+            prek-v1|
+            ${{ runner.os }}|${{ runner.arch }}|${{ matrix.python-version }}|
+            ${{ hashFiles('**/.pre-commit-config.yaml') }}
+
+      - name: Prek lint
         run: |
-          python -m pip install --upgrade pip
-          pip install .[dev]
+          uv run --frozen --extra dev -- prek run --all-files --show-diff-on-failure --color=always
 
-      - name: Run prek
-        run: prek run --all-files
-
-      - name: Run pytest with coverage
-        run: pytest --cov=./ --cov-report=xml
+      - name: Test with python ${{ matrix.python-version }}
+        run: uv run --frozen --extra dev -- pytest --cov=./ --cov-report=xml
 
       - name: Upload coverage report to codecov
         uses: codecov/codecov-action@v5
