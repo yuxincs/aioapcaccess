@@ -39,7 +39,7 @@ jobs:
         run: uv run --frozen --extra dev -- pytest --cov=./ --cov-report=xml
 
       - name: Upload coverage report to codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
