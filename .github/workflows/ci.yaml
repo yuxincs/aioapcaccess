@@ -14,7 +14,7 @@ jobs:
       matrix:
         python-version: ["3.11", "3.14"]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Install the latest version of uv and set the python version
         uses: astral-sh/setup-uv@v7
@@ -23,7 +23,7 @@ jobs:
 
       # Set up a cache for prek.
       - name: Setup cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/prek
           key: >
@@ -39,7 +39,7 @@ jobs:
         run: uv run --frozen --extra dev -- pytest --cov=./ --cov-report=xml
 
       - name: Upload coverage report to codecov
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
