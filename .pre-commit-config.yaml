@@ -46,7 +46,7 @@ repos:
     rev: v1.37.1
     hooks:
       - id: yamllint
-  - repo: https://github.com/DetachHead/basedpyright-prek-mirror
-    rev: 1.36.2
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    rev: v0.0.58
     hooks:
-      - id: basedpyright
+      - id: ty
