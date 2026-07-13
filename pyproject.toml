@@ -46,7 +46,6 @@ target-version = "py310"
 [tool.ruff.lint]
 extend-select = ["I"]
 
-[tool.basedpyright]
-typeCheckingMode = "strict"
-# Disable unused call result warnings since it is too noisy in practice.
-reportUnusedCallResult = "none"
+[tool.ty.rules]
+missing-type-argument = "error"
+possibly-unresolved-reference = "warn"
